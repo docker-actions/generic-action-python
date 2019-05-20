@@ -1,0 +1,2 @@
+export IMAGE_NAME=nuitka;                     export IMAGE_TAG=0.5.31;   export REQUIRED_PACKAGES="nuitka==0.5.31"
+export IMAGE_NAME=cookiecutter;               export IMAGE_TAG=1.6.0;    export REQUIRED_PACKAGES="cookiecutter==1.6.0"
