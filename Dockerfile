@@ -1,6 +1,6 @@
 ARG ROOTFS=/build/rootfs
 
-FROM ubuntu:bionic as build
+FROM ubuntu:jammy as build
 
 ARG REQUIRED_PACKAGES=""
 ARG IMAGE_NAME=""
@@ -34,13 +34,13 @@ RUN set -Eeuo pipefail; \
 COPY ${IMAGE_NAME}.entrypoint.sh ${ROOTFS}/usr/local/bin/entrypoint.sh
 RUN chmod +x ${ROOTFS}/usr/local/bin/entrypoint.sh
 
-FROM actions/python3:3.6.5-7
+FROM actions/python3:3.10.6-jammy1
 LABEL maintainer = "ilja+docker@bobkevic.com"
 
 ARG ROOTFS
 RUN : "${ROOTFS:?Build argument needs to be set and non-empty.}"
 
-ENV PYTHONPATH=:/usr/lib/python36.zip:/usr/lib/python3.6:/usr/lib/python3.6/lib-dynload:/usr/lib/python3/dist-packages:/usr/local/lib/python3.6/dist-packages
+ENV PYTHONPATH=:/usr/lib/python310.zip:/usr/lib/python3.10:/usr/lib/python3.10/lib-dynload:/usr/lib/python3/dist-packages:/usr/local/lib/python3.10/dist-packages
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
 
